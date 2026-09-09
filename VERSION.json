@@ -1,0 +1,30 @@
+{
+  "name": "PCLogExport",
+  "version": "0.2",
+  "created_at": "2026-06-15T22:39:25",
+  "outputs": [
+    "CSV",
+    "JSON"
+  ],
+  "columns": [
+    "PCName",
+    "Date",
+    "LoginTime",
+    "LogoffTime"
+  ],
+  "changes": [
+    "LogoffTime only is rounded up to the next 10-minute mark.",
+    "LoginTime remains unchanged."
+  ],
+  "source": {
+    "log": "System",
+    "provider": [
+      "Microsoft-Windows-Winlogon",
+      "Winlogon"
+    ],
+    "event_ids": {
+      "7001": "Logon",
+      "7002": "Logoff"
+    }
+  }
+}
